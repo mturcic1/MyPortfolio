@@ -1,0 +1,45 @@
+from turtle import Turtle, Screen
+import random
+
+def random_color():
+    r = chosen_color[0]
+    g = chosen_color[1]
+    b = chosen_color[2]
+    random_choice = (r, g, b)
+    return random_choice
+
+
+rgb_colors = [(201, 111, 166), (239, 246, 241), (150, 51, 75),
+              (221, 139, 201), (166, 46, 152), (55, 123, 93), (135, 22, 33), (134, 183, 162), (49, 87, 116),
+              (196, 73, 92), (17, 75, 95), (92, 74, 72), (70, 39, 46), (146, 149, 176), (161, 157, 143),
+              (232, 165, 176), (56, 50, 47), (130, 32, 29), (40, 73, 61), (182, 174, 205), (85, 126, 146), (20, 64, 71),
+              (39, 83, 74), (167, 105, 101), (217, 181, 177), (49, 80, 65), (110, 148, 125)]
+
+
+timmy = Turtle()
+timmy.shape("turtle")
+timmy.hideturtle()
+timmy.speed("fastest")
+timmy.penup()
+timmy.setpos(-470,-380 )
+my_screen = Screen()
+my_screen.colormode(255)
+i = 0
+
+while i < 10:
+    for _ in range(10):
+        chosen_color = random.choice(rgb_colors)
+        timmy.pencolor((random_color()))
+        timmy.dot(size=20)
+        timmy.forward(50)
+    timmy.left(90)
+    timmy.forward(50)
+    timmy.right(90)
+    timmy.setx(-470)
+    i += 1
+
+
+
+my_screen = Screen()
+print(my_screen.screensize())
+my_screen.exitonclick()
