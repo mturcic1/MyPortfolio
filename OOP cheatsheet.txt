@@ -1,0 +1,124 @@
+#BASIC OOP
+class Student:
+    def __init__(self, name, age, grade):
+        self.name = name
+        self.age = age
+        self.grade = grade #0 - 100
+
+    def get_grade(self):
+        return self.grade
+
+class Course:
+    def __init__(self, name, max_students):
+        self.name = name
+        self.max_students = max_students
+        self.students = []
+        self.current_students = 0
+
+    def add_students(self, student_name):
+        if self.max_students > self.current_students:
+            self.students.append(student_name)
+            self.current_students +=1
+            print(f"{student_name.name} has been enrolled into {self.name}")
+        else:
+            print(f"The course {self.name} is full, please chose another course")
+
+    def get_average(self):
+        grade = 0
+        for student in self.students:
+            grade += student.grade
+        return grade / len(self.students)
+
+
+
+s1 = Student("Rasmus", 28, 80)
+s2 = Student("Andreas", 22, 95)
+s3 = Student("Jens", 2, 50)
+
+c1 = Course("Computer science", 2)
+c1.add_students(s1)
+c1.add_students(s2)
+c1.add_students(s3)
+
+print(c1.get_average())
+
+
+
+# INHERITANCE
+class Animal:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def show(self):
+        print(f"I am {self.name} and I am {self.age} years old.")
+
+    def speak(self):
+        print("I don't know what to say")
+
+
+class Cat(Animal):
+    def __init__(self, name, age, color):
+        super().__init__(name, age)
+        self.color = color
+
+    def speak(self):
+        print("Meow")
+
+    def show(self):
+        print(f"I am {self.name} and I am {self.age} years old {self.color} cat.")
+
+
+class Dog(Animal):
+    def speak(self):
+        print("Bark")
+
+class Fish(Animal):
+    def speak(self):
+        print("Help, I cant swim!")
+
+a = Animal("Timothy", 20)
+a.show()
+a.speak()
+
+b = Cat("Mr. Snibbles", 2, "orange")
+b.show()
+b.speak()
+
+c = Dog("Rex", 7)
+c.show()
+c.speak()
+
+d = Fish("Goldie", 1)
+d.speak()
+
+
+
+# CLASS ATTRIBUTES
+class Person:
+    number_of_people = 0
+    def __init__(self, name):
+        self.name = name
+        Person.add_people()
+    @classmethod
+    def number_of_people_(cls):
+        return cls.number_of_people
+    @classmethod
+    def add_people(cls):
+        cls.number_of_people += 1
+
+
+p1 = Person("Joe")
+p2 = Person("Jane")
+print(Person.number_of_people_())
+
+
+
+# STATIC METHOD
+class Math:
+    @staticmethod
+    def add_5(x):
+        return x + 5
+
+
+print(Math.add_5(5))
