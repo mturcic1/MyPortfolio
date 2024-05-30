@@ -1,3 +1,3 @@
 # MyPortfolio
 
-These are my Python learning projects.
+These are general code skeletons that could be useful.
