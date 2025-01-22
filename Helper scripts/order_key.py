@@ -2,7 +2,7 @@ import json
 import re
 
 # File path to the JSON file
-file_path = r"C:\\Users\\matij\\Desktop\\eng_globetrotters_gazette.json"
+file_path = r""
 
 # Function to sort keys by separating numeric and string parts
 def alphanum_key(key):
@@ -21,7 +21,7 @@ with open(file_path, "r", encoding="utf-8") as f:
 reordered_data = reorder_json_keys(data)
 
 # Save the reordered data back to the file
-output_file = r"C:\\Users\\matij\\Desktop\\reordered_eng_globetrotters_gazette.json"
+output_file = r""
 with open(output_file, "w", encoding="utf-8") as f:
     json.dump(reordered_data, f, indent=4, ensure_ascii=False)
 
